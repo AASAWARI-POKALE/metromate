@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MetroMate helps passengers find station routes that match their mobility and travel preferences.">
+  <title>MetroMate | Smart Metro Navigator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">M</span><span>MetroMate</span></a>
+    <div class="header-actions">
+      <span class="demo-tag" data-i18n="demo">DEMO STATION</span>
+      <label class="sr-only" for="language" data-i18n="language">Language</label>
+      <select id="language" aria-label="Choose language">
+        <option value="en">English</option>
+        <option value="hi">हिन्दी</option>
+        <option value="mr">मराठी</option>
+      </select>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="intro">
+      <p class="eyebrow" data-i18n="eyebrow">YOUR JOURNEY, YOUR WAY</p>
+      <h1 data-i18n="headline">Find the route that works for you.</h1>
+      <p class="intro-copy" data-i18n="intro">Every passenger is different. Choose your needs and MetroMate will suggest a route through the station.</p>
+    </section>
+
+    <section class="planner card" aria-labelledby="planner-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow" data-i18n="plan">PLAN YOUR ROUTE</p>
+          <h2 id="planner-title" data-i18n="where">Where would you like to go?</h2>
+        </div>
+        <span class="step-number">01</span>
+      </div>
+
+      <div class="field-grid">
+        <div class="field">
+          <label for="start" data-i18n="from">Starting point</label>
+          <select id="start"><option value="">Loading station…</option></select>
+        </div>
+        <button class="swap-button" id="swap" type="button" aria-label="Swap start and destination">⇅</button>
+        <div class="field">
+          <label for="end" data-i18n="to">Destination</label>
+          <select id="end"><option value="">Choose destination</option></select>
+        </div>
+      </div>
+
+      <div class="section-heading preference-heading">
+        <div>
+          <p class="eyebrow" data-i18n="choose">PERSONALISED ROUTE</p>
+          <h2 data-i18n="how">How would you prefer to travel?</h2>
+        </div>
+        <span class="step-number">02</span>
+      </div>
+
+      <div class="preference-grid" role="group" aria-label="Travel preference">
+        <button class="preference selected" data-preference="wheelchair" type="button">
+          <span class="pref-icon" aria-hidden="true">♿</span>
+          <span class="pref-title" data-i18n="wheelchair">Wheelchair / step-free</span>
+          <span class="pref-desc" data-i18n="wheelchairDesc">Prioritise lifts; avoid stairs and escalators.</span>
+        </button>
+        <button class="preference" data-preference="hurry" type="button">
+          <span class="pref-icon" aria-hidden="true">⚡</span>
+          <span class="pref-title" data-i18n="hurry">Fastest route</span>
+          <span class="pref-desc" data-i18n="hurryDesc">Choose the route with the least estimated time.</span>
+        </button>
+        <button class="preference" data-preference="stairs" type="button">
+          <span class="pref-icon" aria-hidden="true">↟</span>
+          <span class="pref-title" data-i18n="stairs">Prefer stairs</span>
+          <span class="pref-desc" data-i18n="stairsDesc">Prioritise stairways where available.</span>
+        </button>
+        <button class="preference" data-preference="luggage" type="button">
+          <span class="pref-icon" aria-hidden="true">🧳</span>
+          <span class="pref-title" data-i18n="luggage">Travelling with luggage</span>
+          <span class="pref-desc" data-i18n="luggageDesc">Avoid stairs where possible.</span>
+        </button>
+      </div>
+
+      <button class="primary-button" id="find-route" type="button">
+        <span data-i18n="find">Find my route</span><span aria-hidden="true">→</span>
+      </button>
+      <p class="form-message" id="form-message" role="alert"></p>
+    </section>
+
+    <section class="results card" id="results" aria-live="polite" hidden>
+      <div class="results-header">
+        <div>
+          <p class="eyebrow" data-i18n="yourroute">YOUR PERSONAL ROUTE</p>
+          <h2 id="route-title">Route found</h2>
+        </div>
+        <div class="time-pill"><strong id="route-time">—</strong><span data-i18n="minutes">MIN</span></div>
+      </div>
+      <p class="route-summary" id="route-summary"></p>
+      <ol class="route-list" id="route-list"></ol>
+      <div class="route-note" data-i18n="routeNote">Estimated times are illustrative. Follow station signs and check lift/escalator availability with station staff.</div>
+    </section>
+
+    <section class="station-info">
+      <div>
+        <p class="eyebrow" data-i18n="prototype">PROJECT PROTOTYPE</p>
+        <h2 data-i18n="stationTitle">One station. Different journeys.</h2>
+        <p data-i18n="stationCopy">This demo station includes two platforms, two lifts, stairs, escalators, an entrance and an exit. The backend calculates a route based on your selected preference.</p>
+      </div>
+      <div class="station-stats">
+        <div><strong>2</strong><span data-i18n="platforms">Platforms</span></div>
+        <div><strong>2</strong><span data-i18n="lifts">Lifts</span></div>
+        <div><strong>3</strong><span data-i18n="languages">Languages</span></div>
+      </div>
+    </section>
+
+    <footer>
+      <p><strong>MetroMate</strong> · <span data-i18n="footer">A student-built accessibility-first navigation prototype.</span></p>
+      <p class="disclaimer" data-i18n="disclaimer">Not for real-world navigation. Station layout and timings are fictional sample data.</p>
+    </footer>
+  </main>
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+{
+  "name": "MetroMate Demo Station",
+  "notice": "Demonstration data only. Confirm actual routes, lift status and platform information with station staff.",
+  "nodes": [
+    {
+      "id": "gate_a",
+      "name": "Gate A",
+      "type": "entry",
+      "description": "Street-level station entrance"
+    },
+    {
+      "id": "ticket_hall",
+      "name": "Ticket Hall",
+      "type": "concourse",
+      "description": "Tickets, help desk and fare gates"
+    },
+    {
+      "id": "concourse_west",
+      "name": "West Concourse",
+      "type": "concourse",
+      "description": "West side passage"
+    },
+    {
+      "id": "concourse_east",
+      "name": "East Concourse",
+      "type": "concourse",
+      "description": "East side passage"
+    },
+    {
+      "id": "lift_l1",
+      "name": "Lift L1",
+      "type": "lift",
+      "description": "Accessible lift between concourse and Platform 1"
+    },
+    {
+      "id": "lift_l2",
+      "name": "Lift L2",
+      "type": "lift",
+      "description": "Accessible lift between concourse and Platform 2"
+    },
+    {
+      "id": "platform_1",
+      "name": "Platform 1 – City Centre",
+      "type": "platform",
+      "description": "Trains towards City Centre"
+    },
+    {
+      "id": "platform_2",
+      "name": "Platform 2 – University",
+      "type": "platform",
+      "description": "Trains towards University"
+    },
+    {
+      "id": "stairs_1",
+      "name": "Stairs to Platform 1",
+      "type": "stairs",
+      "description": "Stairway down to Platform 1"
+    },
+    {
+      "id": "stairs_2",
+      "name": "Stairs to Platform 2",
+      "type": "stairs",
+      "description": "Stairway down to Platform 2"
+    },
+    {
+      "id": "escalator_1",
+      "name": "Escalator to Platform 1",
+      "type": "escalator",
+      "description": "Down escalator to Platform 1"
+    },
+    {
+      "id": "escalator_2",
+      "name": "Escalator to Platform 2",
+      "type": "escalator",
+      "description": "Down escalator to Platform 2"
+    },
+    {
+      "id": "exit_b",
+      "name": "Gate B",
+      "type": "exit",
+      "description": "Exit towards the bus interchange"
+    }
+  ],
+  "edges": [
+    {
+      "from": "gate_a",
+      "to": "ticket_hall",
+      "type": "walk",
+      "minutes": 2,
+      "instruction": "Walk straight from Gate A to the Ticket Hall."
+    },
+    {
+      "from": "ticket_hall",
+      "to": "concourse_west",
+      "type": "walk",
+      "minutes": 1,
+      "instruction": "Continue to the West Concourse."
+    },
+    {
+      "from": "ticket_hall",
+      "to": "concourse_east",
+      "type": "walk",
+      "minutes": 2,
+      "instruction": "Follow signs to the East Concourse."
+    },
+    {
+      "from": "concourse_west",
+      "to": "lift_l1",
+      "type": "walk",
+      "minutes": 1,
+      "instruction": "Follow the accessible-route sign to Lift L1."
+    },
+    {
+      "from": "lift_l1",
+      "to": "platform_1",
+      "type": "lift",
+      "minutes": 2,
+      "instruction": "Take Lift L1 down to Platform 1."
+    },
+    {
+      "from": "concourse_west",
+      "to": "stairs_1",
+      "type": "walk",
+      "minutes": 1,
+      "instruction": "Walk to the Platform 1 stairway."
+    },
+    {
+      "from": "stairs_1",
+      "to": "platform_1",
+      "type": "stairs",
+      "minutes": 1,
+      "instruction": "Go down the stairs to Platform 1."
+    },
+    {
+      "from": "concourse_west",
+      "to": "escalator_1",
+      "type": "walk",
+      "minutes": 1,
+      "instruction": "Walk to the Platform 1 escalator."
+    },
+    {
+      "from": "escalator_1",
+      "to": "platform_1",
+      "type": "escalator",
+      "minutes": 1,
+      "instruction": "Take the escalator down to Platform 1."
+    },
+    {
+      "from": "concourse_east",
+      "to": "lift_l2",
+      "type": "walk",
+      "minutes": 1,
+      "instruction": "Follow the accessible-route sign to Lift L2."
+    },
+    {
+      "from": "lift_l2",
+      "to": "platform_2",
+      "type": "lift",
+      "minutes": 2,
+      "instruction": "Take Lift L2 down to Platform 2."
+    },
+    {
+      "from": "concourse_east",
+      "to": "stairs_2",
+      "type": "walk",
+      "minutes": 1,
+      "instruction": "Walk to the Platform 2 stairway."
+    },
+    {
+      "from": "stairs_2",
+      "to": "platform_2",
+      "type": "stairs",
+      "minutes": 1,
+      "instruction": "Go down the stairs to Platform 2."
+    },
+    {
+      "from": "concourse_east",
+      "to": "escalator_2",
+      "type": "walk",
+      "minutes": 1,
+      "instruction": "Walk to the Platform 2 escalator."
+    },
+    {
+      "from": "escalator_2",
+      "to": "platform_2",
+      "type": "escalator",
+      "minutes": 1,
+      "instruction": "Take the escalator down to Platform 2."
+    },
+    {
+      "from": "concourse_east",
+      "to": "exit_b",
+      "type": "walk",
+      "minutes": 2,
+      "instruction": "Follow the exit signs to Gate B."
+    },
+    {
+      "from": "ticket_hall",
+      "to": "exit_b",
+      "type": "walk",
+      "minutes": 3,
+      "instruction": "Walk across the concourse to Gate B."
+    }
+  ]
+}
